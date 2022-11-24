@@ -18,6 +18,7 @@
                 </div>
             </div>
         </div>
+        <br>
         <div class="text-center">
             <img src="{{$usuarios}}" class="rounded" alt="...">
         </div>
