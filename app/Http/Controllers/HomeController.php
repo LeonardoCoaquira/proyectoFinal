@@ -24,9 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $usuarios = HTTP::GET('http://127.0.0.1:4000/users');
-        $usuariosArray = $usuarios->json();
-        return view('home',compact('usuariosArray'));
+        $usuarios = HTTP::GET('https://animalapi.leocoaquira12.repl.co');
+        return view('home',compact('usuarios'));
     }
 
 }
