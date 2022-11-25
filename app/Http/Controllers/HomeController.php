@@ -24,8 +24,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $usuarios = HTTP::GET('https://animalapi.leocoaquira12.repl.co');
-        return view('home',compact('usuarios'));
+        $animal = HTTP::GET('https://animalapi.leocoaquira12.repl.co');
+        return view('home',compact('animal'));
+    }
+    
+    public function account()
+    {
+        return view('account');
     }
 
 }

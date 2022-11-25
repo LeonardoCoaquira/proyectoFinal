@@ -18,9 +18,10 @@
                 </div>
             </div>
         </div>
-        <br>
-        <div class="text-center">
-            <img src="{{$usuarios}}" class="rounded" alt="...">
+        <div class="col-md-2">    
+            <div class="card">
+                <img src="{{$animal}}" class="rounded mx-auto d-block" alt="...">
+            </div>
         </div>
     </div>
 </div>
