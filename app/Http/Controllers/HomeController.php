@@ -37,4 +37,9 @@ class HomeController extends Controller
     {
         return view('groups');
     }
+
+    public function posts()
+    {
+        return view('posts');
+    }
 }
