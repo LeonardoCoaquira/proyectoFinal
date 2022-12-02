@@ -85,4 +85,9 @@
         </main>
     </div>
 </body>
+<footer>
+<marquee>
+        <img src="https://cdn.dribbble.com/users/822638/screenshots/3997358/snowman-no.gif" width="160px" height="120px"/>
+    </marquee>
+</footer>
 </html>
