@@ -21,3 +21,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/account', [App\Http\Controllers\HomeController::class, 'account'])->name('account');
+Route::get('/groups', [App\Http\Controllers\HomeController::class, 'groups'])->name('groups');

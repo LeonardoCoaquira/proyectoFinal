@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Animals') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -63,6 +63,10 @@
                                     <a class="dropdown-item" href="{{ route('account') }}"
                                        onclick="">
                                         {{ __('Account') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('groups') }}"
+                                       onclick="">
+                                        {{ __('Groups') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

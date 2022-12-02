@@ -33,4 +33,8 @@ class HomeController extends Controller
         return view('account');
     }
 
+    public function groups()
+    {
+        return view('groups');
+    }
 }
