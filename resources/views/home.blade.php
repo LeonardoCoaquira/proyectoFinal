@@ -20,7 +20,7 @@
         </div>
         <div class="col-md-2">    
             <div class="card">
-                <img src="{{$animal}}" class="rounded mx-auto d-block" alt="...">
+                <img src="{{$animal}}" class="rounded mx-auto d-block" alt="">
             </div>
         </div>
     </div>
