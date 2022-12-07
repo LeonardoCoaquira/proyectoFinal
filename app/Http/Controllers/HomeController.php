@@ -30,7 +30,7 @@ class HomeController extends Controller
     
     public function account()
     {
-        return view('account');
+        return view('account.account');
     }
 
     public function groups()

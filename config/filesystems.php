@@ -35,6 +35,11 @@ return [
             'root' => storage_path('app'),
             'throw' => false,
         ],
+        'pictureProfile' => [
+            'driver' => 'local',
+            'root' => storage_path('app/pictureProfile'),
+            'throw' => false,
+        ],
 
         'public' => [
             'driver' => 'local',
