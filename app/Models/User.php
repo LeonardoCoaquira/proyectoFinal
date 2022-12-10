@@ -22,7 +22,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password',
+        'password'
     ];
  
     /**
@@ -46,5 +46,8 @@ class User extends Authenticatable
 
     public function ProfilePicture(){
         return $this->hasOne(ProfilePicture::class);
+    }
+    public function Post(){
+        return $this->hasMany(Post::class);
     }
 }

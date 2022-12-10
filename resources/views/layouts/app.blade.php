@@ -13,8 +13,6 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-    <link rel="icon" type="https://cdn.sstatic.net/Sites/es/img/apple-touch-icon.png?v=7739871010e6">
-
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -50,7 +48,7 @@
                             @endif
                         @else
                                 <picture>
-                                    <img src="https://cdn-icons-png.flaticon.com/512/64/64573.png" class="img-fluid" alt="..." width="35em">
+                                    <img src="/picProfile/{{auth()->user()->pictureProfile}}" class="rounded-circle img-fluid" alt="No profile" width="40em">
                                 </picture>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

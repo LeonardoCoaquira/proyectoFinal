@@ -7,10 +7,12 @@
         </div>
         <div class="col-6">
             <div class="card">
-                <img src="/pictureProfile/{{auth()->user()->pictureProfile }}" class="card-img-top" alt="avatar">
+              <div class="card-img-top">
+                <img src="/pictureProfile/{{auth()->user()->pictureProfile}}" class="rounded-circle img-fluid" style="max-width: 150px;" alt="avatar">
+              </div>
                 <div class="card-body">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Launch demo modal
+                        Change Photo
                     </button>
                 </div>
                 <ul class="list-group">
@@ -48,11 +50,10 @@
                 <div class="col-auto">
                     <button type="submit" class="btn btn-primary mb-3">Subir</button>
                 </div>
-            </form>
+      </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

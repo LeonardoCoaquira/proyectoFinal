@@ -12,6 +12,14 @@ use Intervention\Image\Facades\Image;
 
 class AccountController extends Controller
 {
+    public function index()
+    {
+        $id = auth()->user()->id;
+        $user = User::where('user_id', $id)->get();
+        $userData = $user->toArray();
+        return view('account.account',compact('userData'));
+    }
+
     public function edit(Request $request)
     {
         $id = auth()->user()->id;

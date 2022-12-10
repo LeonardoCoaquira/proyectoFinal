@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('route_img');
             $table->set('groups',['owner','member']);
+            $table->string('pictureProfile')->default('default_icon.png');
             $table->rememberToken();
             $table->timestamps();
         });
