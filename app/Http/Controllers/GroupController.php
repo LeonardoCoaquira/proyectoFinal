@@ -16,16 +16,12 @@ class GroupController extends Controller
 
     public function createGroup(Request $request)
     {
-        if ($request->hasFile('picture')) {
+        if ($request->group) {
             $id = auth()->user()->id;
-            $image      = $request->file('picture');
-            $fileName   = time() . '.' . $image->getClientOriginalExtension();
-            Storage::disk('pictureGroups')->put('/' . $fileName, file_get_contents($image));
             $group = new Group;
             $group->creator = $id;
             $group->name = $request->name;
             $group->description = $request->description;
-            $group->picture = $fileName;
             $group->bgColor = $request->bgColor;
             $group->save();
             return redirect('/groups');

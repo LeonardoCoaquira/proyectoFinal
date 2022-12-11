@@ -13,7 +13,6 @@ class Group extends Model
         'creator',
         'name',
         'description',
-        'picture',
         'bgColor',
     ];
 

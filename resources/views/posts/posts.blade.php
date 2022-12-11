@@ -53,8 +53,25 @@
                             </div>
                         </div>
                         <div class="card-footer text-muted">
-                            Comentarios: {{count($comments->where('post_id',$post->id))}}
+                        <div class="btn-group">
+                                    <p> <i class="bi bi-chat-dots">Comments: </i>
+                                        <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample{{$post->id}}" aria-expanded="false" aria-controls="collapseExample">
+                                            <x-bi-chat class="text-primary"/>  {{count($comments->where('post_id',$post->id))}}
+                                        </button>
+                                    </p>
+                                </div>
+                                <div class="collapse" id="collapseExample{{$post->id}}">
+                                    @foreach ($comments as $comentario)
+                                        @if ($comentario->post_id == $post->id)
+                                            <small class="text-muted">{{ $comentario->User->name }}</small>
+                                            <div class="card card-body">
+                                                {{ $comentario->comment }}
+                                            </div>
+                                        @endif
+                                    @endforeach
                         </div>
+                        
+                        
                     </div>
                 </div>
                 

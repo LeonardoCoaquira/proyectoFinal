@@ -34,7 +34,7 @@
                                 <div class="btn-group">
                                     <p> <i class="bi bi-chat-dots"></i>
                                         <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample{{$post->id}}" aria-expanded="false" aria-controls="collapseExample">
-                                            <x-bi-chat class="text-primary" />{{count($comments->where('post_id',$post->id))}}
+                                            <x-bi-chat class="text-primary" /> {{count($comments->where('post_id',$post->id))}}
                                         </button>
                                     </p>
                                 </div>

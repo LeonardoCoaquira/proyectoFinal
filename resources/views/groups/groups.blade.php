@@ -61,9 +61,6 @@
                 <input type="text" name="description" class="form-control" placeholder="Content" aria-label="Content" aria-describedby="basic-addon1" required>
             </div>
             <div class="input-group mb-3">
-                <input name="picture" class="form-control" type="file" id="formFile">
-            </div>
-            <div class="input-group mb-3">
                 <label for="exampleColorInput" class="form-label">Font Color</label>
                 <input name="bgColor" type="color" class="form-control form-control-color" id="exampleColorInput" value="#563d7c" title="Choose your color">
             </div>
