@@ -35,12 +35,11 @@ return [
             'root' => storage_path('app'),
             'throw' => false,
         ],
-        'pictureProfile' => [
+        'fotos' => [
             'driver' => 'local',
-            'root' => storage_path('app/pictureProfile'),
+            'root' => storage_path('app/fotos'),
             'throw' => false,
         ],
-
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

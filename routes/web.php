@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,12 +22,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/account', [App\Http\Controllers\AccountController::class, 'index'])->name('account');
-Route::get('/account/edit', [App\Http\Controllers\AccountController::class, 'edit'])->name('editProfile');
-Route::get('/picProfile/{route}', [App\Http\Controllers\AccountController::class, 'showPicture']);
-Route::post('/account/uploadPicture', [App\Http\Controllers\AccountController::class, 'uploadPicture'])->name('uploadPicture');
-Route::get('/groups', [App\Http\Controllers\HomeController::class, 'groups'])->name('groups');
 Route::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->name('posts');
-Route::post('/post/uploadPost', [App\Http\Controllers\PostController::class, 'uploadPost'])->name('uploadPost');
-
-
+Route::post('/uploadPost', [App\Http\Controllers\PostController::class, 'subirFoto'])->name('subirFoto');
+Route::post('/deletePost', [App\Http\Controllers\PostController::class, 'eliminarFoto'])->name('eliminarFoto');
+Route::post('/subirComentario', [App\Http\Controllers\PostController::class, 'subirComentario'])->name('subirComentario');
+Route::get('/groups', [App\Http\Controllers\GroupController::class, 'index'])->name('groups');

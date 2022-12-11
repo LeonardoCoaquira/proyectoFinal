@@ -3,18 +3,21 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
-class Post extends Model
+class Post extends Eloquent
 {
     use HasFactory;
 
-    public function User()
-    {
-        return $this->hasOne(User::class);
-    }
+    protected $fillable = [
+        'title',
+        'content',
+    ];
 
+    public function User(){
+        return $this->belongsTo(User::class);
+    }
     public function Comment(){
-        return $this->embedsMany(Comment::class);
+        return $this->hasMany(Comment::class);
     }
 }

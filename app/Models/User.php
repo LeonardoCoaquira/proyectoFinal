@@ -1,15 +1,12 @@
 <?php
- 
+
 namespace App\Models;
- 
+
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Jenssegers\Mongodb\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-
-
-
 
 class User extends Authenticatable
 {
@@ -22,9 +19,9 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password'
+        'password',
     ];
- 
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -34,7 +31,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
- 
+
     /**
      * The attributes that should be cast.
      *
@@ -43,11 +40,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function ProfilePicture(){
-        return $this->hasOne(ProfilePicture::class);
+    public function Posts(){
+        return $this->embedsMany(Post::class);
     }
-    public function Post(){
-        return $this->hasMany(Post::class);
+    public function Comment(){
+        return $this->embedsMany(Comment::class);
     }
 }

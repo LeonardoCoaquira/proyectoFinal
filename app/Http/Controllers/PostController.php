@@ -2,31 +2,67 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\Post;
+use App\Models\Comment;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class PostController extends Controller
 {
     //
-    
     public function index()
     {
         $id = auth()->user()->id;
-        $posts = DB::table('posts')->get();
-        $postsData = $posts->toArray();
-        return view('post.posts',compact('postsData'));
+        $users = User::find($id);
+        return view('posts.posts', compact('users'));
     }
 
-    public function uploadPost(Request $request)
+
+    public function mostrarFoto(string $ruta)
     {
-        $id = auth()->user()->id;
-        $post = new Post;
-        $post->user_id = $id;
-        $post->post_title = $request->title;
-        $post->post_content = $request->content;
-        $post->save();
-        return redirect('/posts');
+        $file = Storage::disk('fotos')->get($ruta);
+        return Image::make($file)->response();
+    }
+
+    public function subirFoto(Request $request)
+    {
+        if ($request) {
+
+            $id = auth()->user()->id;
+            $user = User::find($id);
+            $post = $user->Posts()->save(
+                new Post(['title' => $request->title,
+                'content'=>$request->content,
+                ])
+            );
+    
+            return redirect('/fotos');
+        }
+    }
+
+    public function eliminarFoto(Request $request)
+    {
+        if ($request->id_post) {
+            $user = User::where('Posts._id',$request->id_post)
+            ->first();
+            $user->Posts()->destroy($request->id_post);
+
+            return redirect('/posts');
+        }
+    }
+    public function subirComentario(Request $request)
+    {
+        if ($request->comentario) {
+            $id = auth()->user()->id;
+            $comentario = new Comment;
+            $comentario->user_id = $id;
+            $comentario->foto_id = $request->id_foto;
+            $comentario->comentario = $request->comentario;
+            $comentario->estado = 1;
+            $comentario->save();
+            return redirect('/home');
+        }
     }
 }

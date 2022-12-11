@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
+use App\Models\Foto;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -24,17 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $animal = HTTP::GET('https://animalapi.leocoaquira12.repl.co');
-        return view('home',compact('animal'));
-    }
-    
-    public function account()
-    {
-        return view('account.account');
+        $users = User::All();
+        return view('home', compact('users'));
     }
 
-    public function groups()
-    {
-        return view('groups');
-    }
 }
