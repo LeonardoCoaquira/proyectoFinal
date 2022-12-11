@@ -22,34 +22,42 @@
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 @foreach($users as $user)
-                @foreach($user->Posts as $foto)
+                @foreach($user->Posts as $post)
                 <div class="col">
                     <div class="card shadow-sm">
                         <div class="card-header">
-                            <h5 class="card-title">{{$foto->title}}</h5>
+                            <h5 class="card-title">{{$post->title}}</h5>
                         </div>
                         <div class="card-body">
-                            <p class="card-text">{{$foto->content}}</p>
+                            <p class="card-text">{{$post->content}}</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <p> <i class="bi bi-chat-dots"></i>
-                                        <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample{{$foto->id}}" aria-expanded="false" aria-controls="collapseExample">
-                                            <x-bi-chat class="text-primary" />
+                                        <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample{{$post->id}}" aria-expanded="false" aria-controls="collapseExample">
+                                            <x-bi-chat class="text-primary" />{{count($comments->where('post_id',$post->id))}}
                                         </button>
                                     </p>
                                 </div>
                                 <small class="text-muted">{{$user->name}}</small>
                             </div>
-                            <div class="collapse" id="collapseExample{{$foto->id}}">
+                            <div class="collapse" id="collapseExample{{$post->id}}">
+                                    @foreach ($comments as $comentario)
+                                        @if ($comentario->post_id == $post->id)
+                                            <small class="text-muted">{{ $comentario->User->name }}</small>
+                                            <div class="card card-body">
+                                                {{ $comentario->comment }}
+                                            </div>
+                                        @endif
+                                    @endforeach
                                 <form method="POST" action="{{ route('subirComentario') }}" >
                                 @csrf
                                     <div class="form-group">
                                         <div class="mt-2 row g-3">
                                             <div class="col-9">
-                                                <input type="text" class="form-control" name="comentario" aria-describedby="emailHelp" placeholder="Ingrese su comentario">
+                                                <input type="text" class="form-control" name="comment" aria-describedby="emailHelp" placeholder="Ingrese su comentario">
                                             </div>
                                             <div class="col-2">
-                                            <input type="hidden" name="id_foto" value="{{$foto->id}}">
+                                            <input type="hidden" name="post_id" value="{{$post->id}}">
                                                 <button type="submit" class="btn btn-primary">
                                                     <x-bi-send />
                                                 </button>

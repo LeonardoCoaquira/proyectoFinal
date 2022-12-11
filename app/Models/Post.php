@@ -17,7 +17,7 @@ class Post extends Eloquent
     public function User(){
         return $this->belongsTo(User::class);
     }
-    public function Comment(){
+    public function Comments(){
         return $this->hasMany(Comment::class);
     }
 }

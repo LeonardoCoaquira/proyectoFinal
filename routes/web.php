@@ -23,7 +23,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->name('posts');
-Route::post('/uploadPost', [App\Http\Controllers\PostController::class, 'subirFoto'])->name('subirFoto');
-Route::post('/deletePost', [App\Http\Controllers\PostController::class, 'eliminarFoto'])->name('eliminarFoto');
+Route::post('/uploadPost', [App\Http\Controllers\PostController::class, 'uploadPost'])->name('uploadPost');
+Route::post('/deletePost', [App\Http\Controllers\PostController::class, 'deletePost'])->name('deletePost');
 Route::post('/subirComentario', [App\Http\Controllers\PostController::class, 'subirComentario'])->name('subirComentario');
 Route::get('/groups', [App\Http\Controllers\GroupController::class, 'index'])->name('groups');
+Route::post('/groups', [App\Http\Controllers\GroupController::class, 'createGroup'])->name('createGroup');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use App\Models\Foto;
 use App\Models\User;
@@ -26,7 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         $users = User::All();
-        return view('home', compact('users'));
+        $comments = Comment::All();
+        return view('home', compact('users','comments'));
     }
-
 }

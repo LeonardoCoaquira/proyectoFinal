@@ -35,6 +35,9 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ route('posts') }}">My Posts</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('groups') }}">My Groups</a>
+            </li>
           </ul>
           <ul class="navbar-nav ms-auto">
             <!-- Authentication Links -->

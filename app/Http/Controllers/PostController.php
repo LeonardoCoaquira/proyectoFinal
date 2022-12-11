@@ -16,7 +16,8 @@ class PostController extends Controller
     {
         $id = auth()->user()->id;
         $users = User::find($id);
-        return view('posts.posts', compact('users'));
+        $comments = Comment::All();
+        return view('posts.posts', compact('users','comments'));
     }
 
 
@@ -26,7 +27,7 @@ class PostController extends Controller
         return Image::make($file)->response();
     }
 
-    public function subirFoto(Request $request)
+    public function uploadPost(Request $request)
     {
         if ($request) {
 
@@ -38,11 +39,11 @@ class PostController extends Controller
                 ])
             );
     
-            return redirect('/fotos');
+            return redirect('/posts');
         }
     }
 
-    public function eliminarFoto(Request $request)
+    public function deletePost(Request $request)
     {
         if ($request->id_post) {
             $user = User::where('Posts._id',$request->id_post)
@@ -54,14 +55,13 @@ class PostController extends Controller
     }
     public function subirComentario(Request $request)
     {
-        if ($request->comentario) {
+        if ($request->comment) {
             $id = auth()->user()->id;
-            $comentario = new Comment;
-            $comentario->user_id = $id;
-            $comentario->foto_id = $request->id_foto;
-            $comentario->comentario = $request->comentario;
-            $comentario->estado = 1;
-            $comentario->save();
+            $comment = new Comment;
+            $comment->user_id = $id;
+            $comment->post_id = $request->post_id;
+            $comment->comment = $request->comment;
+            $comment->save();
             return redirect('/home');
         }
     }

@@ -19,7 +19,7 @@
     </style>
     <div class="album py-5 bg-light">
         <div class="container">
-            <form action="{{ route('subirFoto') }}" method="POST" enctype="multipart/form-data" class="row g-3">
+            <form action="{{ route('uploadPost') }}" method="POST" enctype="multipart/form-data" class="row g-3">
                 @csrf
                 <label for="staticEmail2">Subir Una foto</label>
                 <div class="mb-3">
@@ -38,18 +38,23 @@
             @foreach($users->Posts as $post)
             <div class="col">
                     <div class="card shadow-sm">
+                    <div class="card-header">
+                        {{$post->title}}
+                    </div>
                         <div class="card-body">
                             <p class="card-text">{{$post->content}}</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <form method="POST" action="{{ route('eliminarFoto') }}">
-                                    @csrf
-                                    <div class="btn-group">
-                                        <input type="hidden" name="id_post" value="{{$post->id}}">
-                                        <button type="submit" class="btn btn-sm btn-outline-secondary">Eliminar</button>
-                                    </div>
-                                </form>
+                            <div class="col-auto">
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Delete
+                                </button>
+                                
+                            </div>    
                                 <small class="text-muted">{{$post->created_at}}</small>
                             </div>
+                        </div>
+                        <div class="card-footer text-muted">
+                            Comentarios: {{count($comments->where('post_id',$post->id))}}
                         </div>
                     </div>
                 </div>
@@ -59,4 +64,28 @@
     </div>
 
 </main>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Post</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{{ route('deletePost') }}" method="POST" enctype="multipart/form-data" class="row g-3">
+            @csrf
+            <div class="modal-body">
+                <p>Are you sure to delete this post?.</p>
+                <input type="hidden" name="id_post" value="{{$post->id}}">
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 @endsection
