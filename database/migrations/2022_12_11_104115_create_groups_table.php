@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('privacity');
+            $table->unsignedBigInteger('creator');
+            $table->foreign('creator')->references('id')->on('users');
+            $table->string('name');
             $table->string('description');
+            $table->string('bgColor');
             $table->timestamps();
         });
     }

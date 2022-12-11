@@ -35,9 +35,9 @@ return [
             'root' => storage_path('app'),
             'throw' => false,
         ],
-        'fotos' => [
+        'pictureGroups' => [
             'driver' => 'local',
-            'root' => storage_path('app/fotos'),
+            'root' => storage_path('app/pictureGroups'),
             'throw' => false,
         ],
         'public' => [

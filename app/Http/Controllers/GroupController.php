@@ -6,8 +6,6 @@ use App\Models\Group;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Laravel\Ui\Presets\React;
-use Spatie\FlareClient\FlareMiddleware\RemoveRequestIp;
 
 class GroupController extends Controller
 {
@@ -24,10 +22,11 @@ class GroupController extends Controller
             $fileName   = time() . '.' . $image->getClientOriginalExtension();
             Storage::disk('pictureGroups')->put('/' . $fileName, file_get_contents($image));
             $group = new Group;
-            $group->creator_user_id = $id;
+            $group->creator = $id;
             $group->name = $request->name;
             $group->description = $request->description;
-            $group->picture = $request->$fileName;
+            $group->picture = $fileName;
+            $group->bgColor = $request->bgColor;
             $group->save();
             return redirect('/groups');
         }

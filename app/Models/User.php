@@ -46,4 +46,9 @@ class User extends Authenticatable
     public function Comment(){
         return $this->embedsMany(Comment::class);
     }
+
+    public function Group()
+    {
+        return $this->hasMany(Group::class);
+    }
 }

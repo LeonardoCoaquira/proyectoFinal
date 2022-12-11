@@ -55,15 +55,21 @@
         <form action="{{ route('createGroup') }}" method="POST" enctype="multipart/form-data" class="row g-3">
             @csrf
             <div class="input-group mb-3">
-                <input type="hidden" name="post_id" value="">
-                <input type="text" name="title" class="form-control" placeholder="Title" aria-label="Title" aria-describedby="basic-addon1" required>
+                <input type="text" name="name" class="form-control" placeholder="Title" aria-label="Title" aria-describedby="basic-addon1" required>
             </div>
             <div class="input-group mb-3">
-                <input type="text" name="content" class="form-control" placeholder="Content" aria-label="Content" aria-describedby="basic-addon1" required>
+                <input type="text" name="description" class="form-control" placeholder="Content" aria-label="Content" aria-describedby="basic-addon1" required>
+            </div>
+            <div class="input-group mb-3">
+                <input name="picture" class="form-control" type="file" id="formFile">
+            </div>
+            <div class="input-group mb-3">
+                <label for="exampleColorInput" class="form-label">Font Color</label>
+                <input name="bgColor" type="color" class="form-control form-control-color" id="exampleColorInput" value="#563d7c" title="Choose your color">
             </div>
             <br>
             <div class="col">
-                <button type="submit" class="btn btn-primary">Post!</button>
+                <button type="submit" class="btn btn-primary">Create!</button>
             </div>
         </form>
       </div>

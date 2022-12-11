@@ -10,10 +10,16 @@ class Group extends Model
     use HasFactory;
 
     protected $fillable = [
-        'creator_user_id',
+        'creator',
         'name',
         'description',
         'picture',
+        'bgColor',
     ];
+
+    public function User()
+    {
+        return $this->hasOne(User::class);
+    }
 
 }
