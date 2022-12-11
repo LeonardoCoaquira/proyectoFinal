@@ -40,6 +40,11 @@ return [
             'root' => storage_path('app/pictureGroups'),
             'throw' => false,
         ],
+        'pictureProfile' => [
+            'driver' => 'local',
+            'root' => storage_path('app/pictureProfile'),
+            'throw' => false,
+        ],
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

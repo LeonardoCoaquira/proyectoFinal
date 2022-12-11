@@ -19,12 +19,11 @@ class GroupController extends Controller
         if ($request->group) {
             $id = auth()->user()->id;
             $group = new Group;
-            $group->creator = $id;
-            $group->name = $request->name;
-            $group->description = $request->description;
-            $group->bgColor = $request->bgColor;
+            $group->user_id = $id;
+            $group->post_id = $request->post_id;
+            $group->comment = $request->comment;
             $group->save();
-            return redirect('/groups');
+            return redirect('/home');
         }
     }
 }
