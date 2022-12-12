@@ -53,7 +53,7 @@ class PostController extends Controller
             return redirect('/posts');
         }
     }
-    public function subirComentario(Request $request)
+    public function uploadComment(Request $request)
     {
         if ($request->comment) {
             $id = auth()->user()->id;

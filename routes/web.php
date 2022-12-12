@@ -29,6 +29,9 @@ Route::get('/picProfile/{route}', [App\Http\Controllers\AccountController::class
 Route::post('/account/uploadPicture', [App\Http\Controllers\AccountController::class, 'uploadPicture'])->name('uploadPicture');
 Route::post('/uploadPost', [App\Http\Controllers\PostController::class, 'uploadPost'])->name('uploadPost');
 Route::post('/deletePost', [App\Http\Controllers\PostController::class, 'deletePost'])->name('deletePost');
-Route::post('/subirComentario', [App\Http\Controllers\PostController::class, 'subirComentario'])->name('subirComentario');
+Route::post('/uploadComment', [App\Http\Controllers\PostController::class, 'uploadComment'])->name('uploadComment');
 Route::get('/groups', [App\Http\Controllers\GroupController::class, 'index'])->name('groups');
 Route::post('/createGroup', [App\Http\Controllers\GroupController::class, 'createGroup'])->name('createGroup');
+Route::get('/animals', [App\Http\Controllers\AnimalController::class, 'index'])->name('animals');
+Route::get('/animals/search', [App\Http\Controllers\AnimalController::class, 'searchDataAnimal'])->name('searchAnimal');
+Route::get('/app/{route}', [App\Http\Controllers\HomeController::class, 'showPictureApp']);

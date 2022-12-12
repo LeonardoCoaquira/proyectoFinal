@@ -23,11 +23,10 @@
             <div class="row">
                 <div class="col-md-2">
                     <div class="card">
-                        <img src="..." class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <h5 class="card-title">Add Post</h5>
+                            <p class="card-text">Share</p>
+                            <a href="{{route('posts')}}" class="btn btn-primary">Create Posts!</a>
                         </div>
                     </div>
                 </div>
@@ -61,7 +60,7 @@
                                                     </div>
                                                 @endif
                                             @endforeach
-                                            <form method="POST" action="{{ route('subirComentario') }}" >
+                                            <form method="POST" action="{{ route('uploadComment') }}" >
                                             @csrf
                                                 <div class="form-group">
                                                     <div class="mt-2 row g-3">

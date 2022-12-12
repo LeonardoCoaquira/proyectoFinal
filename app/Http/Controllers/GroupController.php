@@ -2,16 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Group;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class GroupController extends Controller
 {
     public function index()
     {
-        return view('groups.groups');
+        $id = auth()->user()->id;
+        $users = User::find($id);
+        $comments = Comment::All();
+        $groups = Group::All();
+        return view('groups.groups', compact('users','groups','comments'));
     }
 
     public function createGroup(Request $request)
@@ -23,7 +27,7 @@ class GroupController extends Controller
             $group->post_id = $request->post_id;
             $group->comment = $request->comment;
             $group->save();
-            return view('groups.groups');
+            return redirect('/groups');
         }
     }
 }

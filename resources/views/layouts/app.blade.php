@@ -13,6 +13,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+    <link rel="icon" type="image/png" href="/app/dinosaur-bg.png" />
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -22,7 +23,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name', 'Animals') }}
-                    <img style="height: 2em;" src="https://i.pinimg.com/originals/bc/4e/df/bc4edfed8b672cc33f04fbde19754d9e.jpg" >
+                    <img style="height: 2em;" src="/app/yellow-bg.png" >
                 </a>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -70,6 +71,10 @@
                                     <a class="dropdown-item" href="{{ route('posts') }}"
                                        onclick="">
                                         {{ __('Posts') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('animals') }}"
+                                       onclick="">
+                                        {{ __('Animals') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

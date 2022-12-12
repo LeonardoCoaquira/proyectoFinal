@@ -52,6 +52,14 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
+        
+        'app' => [
+            'driver' => 'local',
+            'root' => storage_path('app/app'),
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
 
         's3' => [
             'driver' => 's3',
