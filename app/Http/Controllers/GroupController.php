@@ -23,7 +23,7 @@ class GroupController extends Controller
             $group->post_id = $request->post_id;
             $group->comment = $request->comment;
             $group->save();
-            return redirect('/home');
+            return view('groups.groups');
         }
     }
 }

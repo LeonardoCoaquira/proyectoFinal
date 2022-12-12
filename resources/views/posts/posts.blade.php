@@ -35,31 +35,30 @@
             </form>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             @foreach($users->Posts as $post)
-            <div class="col">
-                    <div class="card shadow-sm">
-                    <div class="card-header">
-                        {{$post->title}}
-                    </div>
-                        <div class="card-body">
-                            <p class="card-text">{{$post->content}}</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                            <div class="col-auto">
-                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Delete
-                                </button>
-                                
-                            </div>    
-                                <small class="text-muted">{{$post->created_at}}</small>
+                <div class="col">
+                        <div class="card shadow-sm">
+                            <div class="card-header">
+                                {{$post->title}}
                             </div>
-                        </div>
-                        <div class="card-footer text-muted">
-                        <div class="btn-group">
-                                    <p> <i class="bi bi-chat-dots">Comments: </i>
-                                        <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample{{$post->id}}" aria-expanded="false" aria-controls="collapseExample">
-                                            <x-bi-chat class="text-primary"/>  {{count($comments->where('post_id',$post->id))}}
-                                        </button>
-                                    </p>
+                            <div class="card-body">
+                                <p class="card-text">{{$post->content}}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                <div class="col-auto">
+                                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        Delete
+                                    </button>
+                                </div>    
+                                    <small class="text-muted">{{$post->created_at}}</small>
                                 </div>
+                            </div>
+                            <div class="card-footer text-muted">
+                            <div class="btn-group">
+                                <p> <i class="bi bi-chat-dots">Comments: </i>
+                                    <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample{{$post->id}}" aria-expanded="false" aria-controls="collapseExample">
+                                        <x-bi-chat class="text-primary"/>  {{count($comments->where('post_id',$post->id))}}
+                                    </button>
+                                </p>
+                            </div>
                                 <div class="collapse" id="collapseExample{{$post->id}}">
                                     @foreach ($comments as $comentario)
                                         @if ($comentario->post_id == $post->id)
@@ -69,13 +68,10 @@
                                             </div>
                                         @endif
                                     @endforeach
+                                </div>
+                            </div>
                         </div>
-                        
-                        
-                    </div>
                 </div>
-                
-
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
