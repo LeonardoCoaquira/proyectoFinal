@@ -7,8 +7,9 @@
         </div>
         <div class="col-6">
             <div class="card">
+                <br>
               <div class="card-img-top">
-                <img src="/pictureProfile/{{auth()->user()->pictureProfile}}" class="rounded-circle img-fluid" style="max-width: 150px;" alt="avatar">
+                <img src="/picProfile/{{auth()->user()->pictureProfile}}" class="rounded-circle img-fluid" style="max-width: 150px;" alt="...">
               </div>
                 <div class="card-body">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -18,9 +19,7 @@
                 <ul class="list-group">
                     <a class="list-group-item">{{auth()->user()->name}}</li>
                     <li class="list-group-item">{{auth()->user()->pictureProfile }}</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
+                    <li class="list-group-item">{{auth()->user()->description}}</li>
                 </ul>
                 <div class="card-body">
                     <a href="{{ url('/account') }}" class="btn btn-primary">Account</a>

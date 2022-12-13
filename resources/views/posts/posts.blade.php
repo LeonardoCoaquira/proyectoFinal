@@ -62,9 +62,18 @@
                                 <div class="collapse" id="collapseExample{{$post->id}}">
                                     @foreach ($comments as $comentario)
                                         @if ($comentario->post_id == $post->id)
-                                            <small class="text-muted">{{ $comentario->User->name }}</small>
-                                            <div class="card card-body">
-                                                {{ $comentario->comment }}
+                                            <h6 class="text-muted">{{ $comentario->User->name }}</h6>
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <picture>
+                                                        <img src="/picProfile/{{$comentario->User->pictureProfile}}" class="rounded-circle img-fluid" alt="..." width="50em">
+                                                    </picture>
+                                                </div>
+                                                <div class="col-10">   
+                                                    <div class="card card-body">
+                                                        {{ $comentario->comment }}
+                                                    </div>
+                                                </div>
                                             </div>
                                         @endif
                                     @endforeach

@@ -29,6 +29,14 @@
                             <a href="{{route('posts')}}" class="btn btn-primary">Create Posts!</a>
                         </div>
                     </div>
+                    <br>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Change Photo Profile</h5>
+                            <p class="card-text">Renew your photo</p>
+                            <a href="{{ url('/account/edit') }}" class="btn btn-primary">Change Photo!</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-7">
                     <div class="row row-cols-1 g-3">
@@ -37,10 +45,10 @@
                             <div class="col">
                                 <div class="card shadow-sm">
                                     <div class="card-header">
-                                        <h5 class="card-title">{{$post->title}}</h5>
+                                        {{$post->title}}
                                     </div>
                                     <div class="card-body">
-                                        <p class="card-text">{{$post->content}}</p>
+                                        <h6 class="card-text">{{$post->content}}</h6>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="btn-group">
                                                 <p> <i class="bi bi-chat-dots"></i>
@@ -54,9 +62,18 @@
                                         <div class="collapse" id="collapseExample{{$post->id}}">
                                             @foreach ($comments as $comentario)
                                                 @if ($comentario->post_id == $post->id)
-                                                    <small class="text-muted">{{ $comentario->User->name }}</small>
-                                                    <div class="card card-body">
-                                                        {{ $comentario->comment }}
+                                                    <h6 class="text-muted">{{ $comentario->User->name }}</h6>
+                                                    <div class="row">
+                                                        <div class="col-1">
+                                                            <picture>
+                                                                <img src="/picProfile/{{$comentario->User->pictureProfile}}" class="rounded-circle img-fluid" alt="..." width="40em">
+                                                            </picture>
+                                                        </div>
+                                                        <div class="col-11">   
+                                                            <div class="card card-body">
+                                                                {{ $comentario->comment }}
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 @endif
                                             @endforeach

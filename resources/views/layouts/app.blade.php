@@ -64,10 +64,6 @@
                                        onclick="">
                                         {{ __('Account') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('groups') }}"
-                                       onclick="">
-                                        {{ __('Groups') }}
-                                    </a>
                                     <a class="dropdown-item" href="{{ route('posts') }}"
                                        onclick="">
                                         {{ __('Posts') }}
