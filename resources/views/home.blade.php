@@ -31,7 +31,7 @@
                     </div>
                     <br>
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body"">
                             <h5 class="card-title">Change Photo Profile</h5>
                             <p class="card-text">Renew your photo</p>
                             <a href="{{ url('/account/edit') }}" class="btn btn-primary">Change Photo!</a>
@@ -44,7 +44,7 @@
                             @foreach($user->Posts as $post)
                             <div class="col">
                                 <div class="card shadow-sm">
-                                    <div class="card-header">
+                                    <div class="card-header"  style="background-color: #FFFF75;">
                                         {{$post->title}}
                                     </div>
                                     <div class="card-body">
@@ -69,12 +69,16 @@
                                                                 <img src="/picProfile/{{$comentario->User->pictureProfile}}" class="rounded-circle img-fluid" alt="..." width="40em">
                                                             </picture>
                                                         </div>
-                                                        <div class="col-11">   
+                                                        <div class="col-9">   
                                                             <div class="card card-body">
                                                                 {{ $comentario->comment }}
                                                             </div>
-                                                        </div>
+                                                            <div class="text-muted">
+                                                                {{ $comentario->created_at->longAbsoluteDiffForHumans(now()) }}
+                                                            </div>
+                                                        </div> 
                                                     </div>
+                                                    <br>
                                                 @endif
                                             @endforeach
                                             <form method="POST" action="{{ route('uploadComment') }}" >
@@ -94,6 +98,9 @@
                                                 </div>
                                             </form>
                                         </div>
+                                    </div>
+                                    <div class="card-footer text-muted">
+                                        Posted ago: {{ $post->created_at->longAbsoluteDiffForHumans(now()) }}
                                     </div>
                                 </div>
                             </div>

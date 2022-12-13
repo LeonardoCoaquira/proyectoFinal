@@ -18,21 +18,14 @@
     </style>
     <div class="album py-5 bg-light">
         <div class="container">
-            <form action="{{ route('uploadPost') }}" method="POST" enctype="multipart/form-data" class="row g-3">
-                @csrf
-                <label for="staticEmail2">Subir Una foto</label>
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Titulo</label>
-                    <input type="text" class="form-control" name="title" placeholder="Agregue una descripcion">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Descripcion</label>
-                    <input type="text" class="form-control" name="content" placeholder="Agregue una descripcion">
-                </div>
-                <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-3">Subir</button>
-                </div>
-            </form>
+        <div class="card-body">
+            <div class="card-body">
+
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#nameModal">
+                        Upload New Post
+                    </button>
+            </div>
+            <br>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             @foreach($users->Posts as $post)
                 <div class="col">
@@ -44,7 +37,7 @@
                                 <p class="card-text">{{$post->content}}</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                 <div class="col-auto">
-                                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deltePost">
                                         Delete
                                     </button>
                                 </div>    
@@ -82,7 +75,7 @@
                         </div>
                 </div>
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="deltePost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
@@ -108,6 +101,37 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="nameModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Upload a Post</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <form action="{{ route('uploadPost') }}" method="POST" enctype="multipart/form-data" class="row g-3">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Title</label>
+                        <input type="text" class="form-control" name="title" placeholder="Agregue una descripcion">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Description</label>
+                        <input type="text" class="form-control" name="content" placeholder="Agregue una descripcion">
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mb-3">Upload</button>
+                    </div>
+                </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
 
 </main>
 

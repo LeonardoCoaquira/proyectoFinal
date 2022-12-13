@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Comment;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
@@ -21,9 +22,9 @@ class PostController extends Controller
     }
 
 
-    public function mostrarFoto(string $ruta)
+    public function showPhoto(string $route)
     {
-        $file = Storage::disk('fotos')->get($ruta);
+        $file = Storage::disk('fotos')->get($route);
         return Image::make($file)->response();
     }
 
@@ -64,5 +65,11 @@ class PostController extends Controller
             $comment->save();
             return redirect('/home');
         }
+    }
+
+    public function showPictureApp(string $route)
+    {
+        $file = Storage::disk('app')->get($route);
+        return Image::make($file)->response();
     }
 }

@@ -25,6 +25,17 @@ class AccountController extends Controller
         return view('account.edit',compact('profileData'));
     }
 
+    public function changeName(Request $request)
+    {
+        $id = auth()->user()->id;
+        DB::table('users')
+            ->where('_id', $id)
+            ->update(
+                ['name' => $request->name]
+            );
+        return redirect('/account/edit');
+    }
+
     public function showPicture(string $route)
     {
         $file = Storage::disk('pictureProfile')->get($route);

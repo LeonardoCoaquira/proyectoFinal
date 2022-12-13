@@ -8,7 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-        <link rel="icon" type="image/png" href="/app/dinosaur-bg.png" />
+        <link rel="icon" type="image/png" href="/app/yellow-bg.png" />
 
         <!-- Styles -->
         <style>
@@ -40,7 +40,7 @@
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
                 <i class="bi bi-app"></i>
-                <h1 style="color: white">Bienvenido a nuestra páguina web sobre ANIMALES!</h1>
+                <h1 style="color: white">Bienvenido a nuestra página web sobre ANIMALES!</h1>
                 <i class="bi bi-app"></i>
                 </div>
             </div>
